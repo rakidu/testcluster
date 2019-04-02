@@ -1,0 +1,68 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "testvm101923"
+        },
+        "networkSecurityGroupName": {
+            "value": "testvm101-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": []
+        },
+        "subnetName": {
+            "value": "scem-sub-q"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/dd365c4a-95ac-425a-b1be-744e3b66a6a4/resourceGroups/scem-rgp-d-dms-001/providers/Microsoft.Network/virtualNetworks/scem-vnt-np-01"
+        },
+        "virtualMachineName": {
+            "value": "testvm101"
+        },
+        "virtualMachineRG": {
+            "value": "acs26"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "scelocaluser"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/dd365c4a-95ac-425a-b1be-744e3b66a6a4/resourceGroups/acs26/providers/Microsoft.KeyVault/vaults/keyvault1012"
+             },
+             "secretName": "vmpassword"
+            }
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "scemrgpddms001diag345"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/dd365c4a-95ac-425a-b1be-744e3b66a6a4/resourceGroups/scem-rgp-d-dms-001/providers/Microsoft.Storage/storageAccounts/scemrgpddms001diag345"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "UTC"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Disabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        }
+    }
+}
