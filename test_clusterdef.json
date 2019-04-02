@@ -1,0 +1,48 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "orchestratorVersion": "1.12.2",
+          "kubernetesConfig": {
+        "networkPolicy": "azure",
+                "maxPods": 30
+      }
+       },
+    "masterProfile": {
+      "count": 1,
+      "ipAddressCount": 15,
+      "dnsPrefix": "acspb",
+      "vmSize": "Standard_D2_v2",
+      "vnetSubnetId": "/subscriptions/dd365c4a-95ac-425a-b1be-744e3b66a6a4/resourceGroups/scem-rgp-d-dms-001/providers/Microsoft.Network/virtualNetworks/scem-vnt-np-01/subnets/scem-sub-q",
+      "firstConsecutiveStaticIP": "10.0.1.150",
+      "vnetCidr" : "10.0.0.0/16",
+      "storageProfile" : "ManagedDisks"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "node",
+        "count": 3,
+        "vmSize": "Standard_D2_v2",
+        "vnetSubnetId": "/subscriptions/dd365c4a-95ac-425a-b1be-744e3b66a6a4/resourceGroups/scem-rgp-d-dms-001/providers/Microsoft.Network/virtualNetworks/scem-vnt-np-01/subnets/scem-sub-q",
+        "availabilityProfile": "AvailabilitySet",
+        "storageProfile" : "ManagedDisks"
+      }
+
+    ],
+    "linuxProfile": {
+      "adminUsername": "scelocaladmin",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMPhUJwcql3bKZ6LIRqiYGoC5+nFVvYnUgRhAKmpiibRuTzT3MNUt8Q1xMuAjW7ZhazDbhANQK7QUj3h6ixCBuYqzSWK07zRU5aH4UDcyhHgIaDxtlr3EEo9MV9PMnPIbuGHHProUblCEvFsxQwaeGDDhVzt02IHd+vkjKef/dovAH7D7a8toDtzVLPvpiOIrZw/e2UmtPzenitWl//QbtAr4o3lXF+uGc9tL7L5WHAXOLeAkx9SZWY+DPlFu38V/sKzJlVpnFcshrYxOVc4rs66qJdY9YOk7YpukHM7YUk2Lc38a834doo8KK5DdmaNCiWl7CKFmJU6G/MqEZ1+tH imported-openssh-key"
+          }
+        ]
+      }
+    },
+    "servicePrincipalProfile": {
+      "clientId": "34dcb78f-6cf8-4fe6-9e07-9ed3d1bebabb",
+      "secret": "57b521ef-4892-4071-a2c5-6f0856e005f0"
+    }
+  }
+}
